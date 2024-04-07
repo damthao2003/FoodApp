@@ -26,7 +26,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/hi_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="128dp"
@@ -49,9 +49,9 @@
                     app:srcCompat="@drawable/profile" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/searchBtn"
                     android:layout_width="308dp"
-                    android:layout_height="45dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="120dp"
                     android:background="@drawable/search_background"
                     android:drawableStart="@android:drawable/ic_menu_search"
@@ -67,7 +67,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -75,11 +76,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText"
+                    app:layout_constraintTop_toBottomOf="@+id/searchBtn"
                     tools:ignore="MissingConstraints">
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/textView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="32dp"
@@ -94,11 +95,11 @@
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.444"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
                     <TextView
                         android:id="@+id/textView8"
@@ -116,7 +117,7 @@
                         android:id="@+id/recyclerView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +158,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="DuplicateIds">
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -186,7 +188,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -194,7 +196,7 @@
 
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/textView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Tài khoản"
@@ -205,14 +207,14 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/homeBtn"
+                    android:id="@+id/cardBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imageView5"
                         android:layout_width="match_parent"
                         android:layout_height="59dp"
                         android:layout_weight="1"
@@ -220,7 +222,7 @@
 
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/textView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Giỏ hàng"
@@ -238,7 +240,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imageView6"
                         android:layout_width="match_parent"
                         android:layout_height="59dp"
                         android:layout_weight="1"
@@ -246,7 +248,7 @@
 
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@id/textView3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hỗ trợ"
@@ -264,7 +266,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imageView7"
                         android:layout_width="match_parent"
                         android:layout_height="59dp"
                         android:layout_weight="1"
@@ -272,7 +274,7 @@
 
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/textView7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Cài đặt"
