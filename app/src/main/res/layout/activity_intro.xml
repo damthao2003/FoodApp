@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_start"
     tools:context=".model.Activity.IntroActivity">
@@ -33,13 +33,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="280dp"
         android:background="#FF8B1A"
         android:fontFamily="serif"
-        android:text="Ứng dụng đặt đồ ăn siêu tiện lợi"
+        android:text="Chào mừng bạn đến với Food App"
         android:textColor="#F4F5F6"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -48,39 +48,56 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF8B1A"
+        android:fontFamily="serif"
+        android:text="Áp đặt đồ ăn siêu tiện lợi"
+        android:textColor="#F4F5F6"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="324dp"
+        android:layout_marginBottom="348dp"
         android:fontFamily="serif"
-        android:text="FoodDaly"
-        android:textColor="#F6F7FA"
+        android:text="FoodDaily"
+        android:textColor="#0A7C71"
         android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/startBtn"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="120dp"
+        android:id="@+id/signUpBtn"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="35dp"
         android:background="@drawable/white_button"
         android:contextClickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
         <TextView
             android:layout_width="173dp"
             android:layout_height="26dp"
             android:layout_marginBottom="10dp"
-            android:text="BẮT ĐẦU"
+            android:text="Đăng kí"
             android:textAlignment="center"
             android:textDirection="ltr"
             android:textSize="20sp"
@@ -92,5 +109,34 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lognInBtn"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/white_button"
+        android:contextClickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+
+        <TextView
+            android:layout_width="173dp"
+            android:layout_height="26dp"
+            android:layout_marginBottom="10dp"
+            android:text="Đăng nhập"
+            android:textAlignment="center"
+            android:textDirection="ltr"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

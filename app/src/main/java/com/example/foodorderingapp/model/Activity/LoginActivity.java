@@ -23,8 +23,6 @@ import org.jetbrains.annotations.TestOnly;
 
 public class LoginActivity extends BaseActivity{
     ActivityLoginBinding binding;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +31,6 @@ public class LoginActivity extends BaseActivity{
 
         setVariable();
 
-
-//
     }
 
     private void setVariable() {
@@ -42,9 +38,10 @@ public class LoginActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
                 String email=binding.userEdit.getText().toString();
-                String password =binding.passEdit.getText().toString();
+                  String password =binding.passEdit.getText().toString();
                 if(!email.isEmpty()&& !password.isEmpty()){
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(email,password).
+                            addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
@@ -53,7 +50,6 @@ public class LoginActivity extends BaseActivity{
                             }else {
                                 Toast.makeText(LoginActivity.this,"Authentication failed",Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
 

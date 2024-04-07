@@ -39,42 +39,29 @@ public class SignUpActivity extends BaseActivity {
         setVariable();
     }
     private void setVariable(){
-        binding.signupBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.signupBtn.setOnClickListener(v -> {
+            String email=binding.userEdit.getText().toString();
+            String password=binding.passEdit.getText().toString();
 
-                String email=binding.userEdit.getText().toString();
-                String password=binding.passEdit.getText().toString();
-
-                if(password.length()<6){
-                    Toast toast = Toast.makeText(getApplicationContext(), "This is a short Toast message", Toast.LENGTH_SHORT);
-                    toast.show();
-                    return;
-                }
-//               mAuth.createUserWithEmailAndPassword(email,password).addOnCanceledListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-//                   @Override
-//                   public void onComplete(@NonNull Task task) {
-//
-//                   }
-//               });
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Log.i(TAG, "onComplete: ");
-                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-                                } else {
-                                    Log.i(TAG, "failure: "+task.getException());
-                                    Toast.makeText(SignUpActivity.this,"Authentication",Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-
-
-
-
+            if(password.length()<6){
+                Toast toast = Toast.makeText(getApplicationContext(), "This is a short Toast message", Toast.LENGTH_SHORT);
+                toast.show();
+                return;
             }
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(SignUpActivity.this, task -> {
+                        if (task.isSuccessful()) {
+                            Log.i(TAG, "onComplete: ");
+                            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                        } else {
+                            Log.i(TAG, "failure: "+task.getException());
+                            Toast.makeText(SignUpActivity.this,"Authentication",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+
+
+
         });
 
     }
