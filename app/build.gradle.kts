@@ -23,9 +23,9 @@ android {
         }
     }
 
-//    buildFeatures{
-//        viewBinding = true
-//    }
+    buildFeatures{
+        viewBinding = true
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -44,4 +44,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.github.bumptech.glide:glide:4.13.2")
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.2")
+
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation ("com.google.firebase:firebase-database:20.2.0")
+
 }
