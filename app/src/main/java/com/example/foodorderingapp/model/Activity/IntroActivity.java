@@ -13,7 +13,6 @@ import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.databinding.ActivityIntroBinding;
 
 public class IntroActivity extends BaseActivity {
-//    private ConstraintLayout signUpBtn, lognInBtn;
     ActivityIntroBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +20,19 @@ public class IntroActivity extends BaseActivity {
         binding=ActivityIntroBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_intro);
 
+        setVariable();
+//        getWindow().setStatusBarColor(Color.parseColor("FFE4B5"));
+
+    }
+    private void setVariable(){
+        binding.lognInBtn.setOnClickListener(v ->{
+            if(mAuth.getCurrentUser() != null){
+                startActivity(new Intent(IntroActivity.this, MainActivity.class));
+            }else{
+                startActivity(new Intent(IntroActivity.this, LoginActivity.class));
+
             }
-
         });
-
-        binding.signUpBtn.setOnClickListener(view -> startActivity(new Intent(IntroActivity.this, SignUpActivity.class)));
-
     }
 
 }
