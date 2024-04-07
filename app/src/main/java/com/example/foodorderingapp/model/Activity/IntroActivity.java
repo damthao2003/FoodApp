@@ -21,18 +21,6 @@ public class IntroActivity extends BaseActivity {
         binding=ActivityIntroBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_intro);
 
-        setVariable();
-        getWindow().setStatusBarColor(Color.parseColor("#FFD500"));
-
-
-    }
-
-    private void setVariable(){
-        binding.lognInBtn.setOnClickListener(view -> {
-            if(mAuth.getCurrentUser() != null){
-                startActivity(new Intent(IntroActivity.this, LoginActivity.class));
-            }else{
-                startActivity(new Intent(IntroActivity.this, MainActivity.class));
             }
 
         });
