@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodorderingapp.R;
+import com.example.foodorderingapp.databinding.ActivityIntroBinding;
 import com.example.foodorderingapp.model.Adaptor.CategoryAdaptor;
 import com.example.foodorderingapp.model.Adaptor.FoodAdaptor;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
@@ -21,7 +22,8 @@ import com.example.foodorderingapp.model.Domain.FoodDomain;
 
 import java.util.ArrayList;
 
-public class IntroActivity extends AppCompatActivity {
+public class IntroActivity extends BaseActivity {
+    ActivityIntroBinding binding;
 
     TextView tvLogin;
     TextView tvSignup;
@@ -36,9 +38,15 @@ public class IntroActivity extends AppCompatActivity {
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
-                startActivity(intent);
-                //Toast.makeText(IntroActivity.this, "sdsdfsdfs", Toast.LENGTH_SHORT).show();
+                if(mAuth.getCurrentUser() != null){
+                    Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    //Toast.makeText(IntroActivity.this, "sdsdfsdfs", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+
 
             }
         });
@@ -47,11 +55,10 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(IntroActivity.this,SignUpActivity.class);
                 startActivity(intent);
+
+
             }
         });
-
-
-
     }
 
 
