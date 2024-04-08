@@ -2,6 +2,7 @@ package com.example.foodorderingapp.model.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.databinding.ActivityIntroBinding;
@@ -20,12 +21,15 @@ public class IntroActivity extends BaseActivity {
 
     }
     private void setVariable(){
-        binding.lognInBtn.setOnClickListener(v ->{
-            if(mAuth.getCurrentUser() != null){
-                startActivity(new Intent(IntroActivity.this, MainActivity.class));
-            }else{
-                startActivity(new Intent(IntroActivity.this, LoginActivity.class));
+        binding.lognInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mAuth.getCurrentUser() != null) {
+                    IntroActivity.this.startActivity(new Intent(IntroActivity.this, MainActivity.class));
+                } else {
+                    IntroActivity.this.startActivity(new Intent(IntroActivity.this, LoginActivity.class));
 
+                }
             }
         });
     }
