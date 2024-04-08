@@ -27,7 +27,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="122dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="100dp"
             app:srcCompat="@drawable/images" />
 
         <LinearLayout
@@ -87,7 +87,7 @@
             android:layout_marginEnd="32dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
-            android:hint="Password"
+            android:hint="Mật Khẩu"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textColorHint="@color/blue_grey"
@@ -101,19 +101,37 @@
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
             android:background="@drawable/button_backround"
-            android:text="Sign up"
+            android:text="Đăng Kí"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Are you a member?Login"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="Bạn Đã Có Tài Khoản? "
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvlg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Đăng nhập"
+                android:textColor="@color/red"
+
+
+                android:textSize="16sp" />
+        </LinearLayout>
 
 
     </LinearLayout>

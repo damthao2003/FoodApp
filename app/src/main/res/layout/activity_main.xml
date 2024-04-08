@@ -137,15 +137,20 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="UnknownId">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="100dp"
+=======
+            android:layout_height="74dp"
+>>>>>>> 59c8df33ba2ebfa25a17c18fc6e36d1c4d59f0c4
             android:layout_gravity="bottom"
-            android:backgroundTint="#f6f6f6"
+            android:backgroundTint="@color/white"
             app:fabCradleMargin="8dp"
             app:fabCradleRoundedCornerRadius="50dp"
             app:fabCradleVerticalOffset="6dp"
@@ -166,8 +171,9 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="40dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/home" />
 
@@ -179,7 +185,7 @@
                         android:text="Trang chủ"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -193,8 +199,9 @@
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="match_parent"
+                        android:layout_width="40dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/person3" />
 
@@ -205,7 +212,7 @@
                         android:text="Tài khoản"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -218,8 +225,9 @@
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:layout_width="match_parent"
+                        android:layout_width="40dp"
                         android:layout_height="59dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/card" />
 
@@ -231,7 +239,7 @@
                         android:text="Giỏ hàng"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -244,8 +252,9 @@
 
                     <ImageView
                         android:id="@+id/imageView6"
-                        android:layout_width="match_parent"
+                        android:layout_width="40dp"
                         android:layout_height="59dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/mess2" />
 
@@ -257,7 +266,7 @@
                         android:text="Hỗ trợ"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -270,8 +279,9 @@
 
                     <ImageView
                         android:id="@+id/imageView7"
-                        android:layout_width="match_parent"
+                        android:layout_width="40dp"
                         android:layout_height="59dp"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/setting3" />
 
@@ -293,21 +303,21 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@id/app_bar"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="#ff5e00"-->
-<!--        android:elevation="3dp"-->
-<!--        app:layout_anchor="@id/app_bar"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.481"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:srcCompat="@drawable/card2"-->
-<!--        >-->
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@id/app_bar"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:backgroundTint="#ff5e00"-->
+    <!--        android:elevation="3dp"-->
+    <!--        app:layout_anchor="@id/app_bar"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout2"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.481"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:srcCompat="@drawable/card2"-->
+    <!--        >-->
 
-<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
+    <!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

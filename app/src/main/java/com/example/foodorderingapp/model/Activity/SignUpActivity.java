@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.databinding.ActivitySignUpBinding;
 //import com.example.login.R;
 //import com.example.login.databinding.ActivitySignUpBinding;
@@ -24,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 
 public class SignUpActivity extends BaseActivity {
     ActivitySignUpBinding binding;
+    TextView tvLG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,14 @@ public class SignUpActivity extends BaseActivity {
 //            return insets;
 //        });
         setVariable();
+        tvLG=findViewById(R.id.tvlg);
+        tvLG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void setVariable(){
         binding.signupBtn.setOnClickListener(v -> {
