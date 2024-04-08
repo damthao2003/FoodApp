@@ -57,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<CategoryDomain> category = new ArrayList<>();
         category.add(new CategoryDomain("Pizza","cat_1"));
-        category.add(new CategoryDomain("Coca","cat_2"));
-        category.add(new CategoryDomain("Trà sữa","cat_3"));
-        category.add(new CategoryDomain("Hotdog","cat_4"));
-        category.add(new CategoryDomain("Donut","cat_5"));
-        category.add(new CategoryDomain("Burger","cat_6"));
+        category.add(new CategoryDomain("Coca",""));
+        category.add(new CategoryDomain("Drink",""));
+        category.add(new CategoryDomain("Hotdog",""));
+        category.add(new CategoryDomain("Donut",""));
+        category.add(new CategoryDomain("Burger",""));
 
         adapter = new CategoryAdaptor((category));
         recyclerViewCategoryList.setAdapter(adapter);
