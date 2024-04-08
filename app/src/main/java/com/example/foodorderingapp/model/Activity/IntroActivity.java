@@ -1,16 +1,11 @@
 package com.example.foodorderingapp.model.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.databinding.ActivityIntroBinding;
+
 
 public class IntroActivity extends BaseActivity {
     ActivityIntroBinding binding;

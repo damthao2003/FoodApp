@@ -30,7 +30,6 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         this.changeNumberItemListener = changeNumberItemListener;
     }
 
-    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);

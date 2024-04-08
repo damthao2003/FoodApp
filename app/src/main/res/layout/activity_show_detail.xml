@@ -44,7 +44,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 android:layout_marginTop="15dp"
-                android:src="@tools:sample/avatars"
                 tools:layout_marginBottom="20dp"
                 tools:srcCompat="@drawable/pizza2" />
 
@@ -79,7 +78,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
-                    android:src="@tools:sample/avatars"
                     tools:srcCompat="@drawable/plus" />
             </LinearLayout>
 

@@ -40,10 +40,11 @@ public class CartListActivity extends AppCompatActivity {
     }
 
     private void bottomNavigation(){
-        FloatingActionButton floatingActionButton = findViewById(R.id.cartBtn2);
+//        FloatingActionButton floatingActionButton = findViewById(R.id.cardBtn);
+        LinearLayout cardBtn = findViewById(R.id.cardBtn);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
 
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CartListActivity.this, CartListActivity.class));
@@ -52,7 +53,7 @@ public class CartListActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CartListActivity.this, IntroActivity.class));
+                startActivity(new Intent(CartListActivity.this, MainActivity.class));
             }
         });
     }

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FoodOrderingApp"
         tools:targetApi="31">
         <activity
+            android:name=".model.Activity.ShowDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".model.Activity.MainActivity"
             android:exported="false" />
         <activity
