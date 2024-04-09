@@ -31,7 +31,10 @@
                     android:id="@+id/hi_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-               
+                    android:layout_marginStart="136dp"
+                    android:layout_marginTop="40dp"
+
+
                     android:textColor="#DD3000"
                     android:textSize="20sp"
                     android:textStyle="bold"

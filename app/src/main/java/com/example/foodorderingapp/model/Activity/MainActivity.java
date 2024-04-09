@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.model.Adaptor.CategoryAdaptor;
 import com.example.foodorderingapp.model.Adaptor.FoodAdaptor;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import com.example.foodorderingapp.model.Domain.FoodDomain;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            String displayName = user.getDisplayName();
+            if (displayName != null) {
+                TextView textView = findViewById(R.id.hi_txt);
+                textView.setText("Chào mừng, " + displayName + "!");
+            } else {
+                // Xử lý lỗi không có tên hiển thị
+                TextView textView = findViewById(R.id.hi_txt);
+                 textView.setText("Chưa có tên hiển thị");
+            }
+        } else {
+            // Hiển thị thông báo người dùng chưa đăng nhập
+            // ...
+            TextView textView = findViewById(R.id.hi_txt);
+            textView.setText("Vui lòng đăng nhập");
+        }
 
         recyclerViewCategory();
         recyclerViewFood();
