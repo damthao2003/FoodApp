@@ -24,6 +24,8 @@ import com.example.foodorderingapp.model.Adaptor.FoodAdapter;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import com.example.foodorderingapp.model.Domain.FoodDomain;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -70,8 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         getListCategory();
+<<<<<<< HEAD
+        recyclerViewFood();
+=======
           recyclerViewFood();
           getListFood();
+>>>>>>> 8777693ffbf69f8672dd3430e01bbd66fd78c11f
         bottomNavigation();
     }
 
