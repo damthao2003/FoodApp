@@ -40,7 +40,7 @@ public class CartListActivity extends AppCompatActivity {
     private void bottomNavigation(){
 //        FloatingActionButton floatingActionButton = findViewById(R.id.cardBtn);
         LinearLayout cardBtn = findViewById(R.id.cartBtn);
-        LinearLayout homeBtn = findViewById(R.id.cartBtn);
+        LinearLayout homeBtn = findViewById(R.id.homeBtn);
 
         cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
