@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView.Adapter  adapter2;
+//    private RecyclerView.Adapter  adapter2;
 //    private Adapter adapterCate, adapter2;
     private RecyclerView rcvCategoryList , rcvFoodList;
     private CategoryAdapter categoryAdapter;
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewCategory();
         getListCategory();
           recyclerViewFood();
+          getListFood();
         bottomNavigation();
     }
 
@@ -81,13 +82,6 @@ public class MainActivity extends AppCompatActivity {
         rcvCategoryList.setLayoutManager(linearLayoutManager);
 
         categoryList = new ArrayList<>();
-//        categoryList.add(new CategoryDomain("Pizza","cat_1",1));
-//        categoryList.add(new CategoryDomain("Burger","",2));
-//        categoryList.add(new CategoryDomain("Coca", "",3));
-//        categoryList.add(new CategoryDomain("Drink","",4));
-//        categoryList.add(new CategoryDomain("Hotdog","",5));
-//        categoryList.add(new CategoryDomain("Donut","",6));
-
         categoryAdapter = new CategoryAdapter((categoryList));
         rcvCategoryList.setAdapter(categoryAdapter);
 
@@ -103,13 +97,6 @@ public class MainActivity extends AppCompatActivity {
         rcvFoodList.setLayoutManager(linearLayoutManager);
 
         foodList = new ArrayList<>();
-//        food.add(new FoodDomain("Pizza hải sản", "pizza2", "Pizza hải sản,phô mai tan chảy,hành tây,mực","250.000", 10 ));
-//        food.add(new FoodDomain("Hamburger", "burger1", "Burgur thịt, chesse , cà chua, rau xà lạch", "20.000",15 ));
-//        food.add(new FoodDomain("Coca", "coca1", "coca có đường", "10.000",20 ));
-//        food.add(new FoodDomain("Trà sữa thái", "milk_tea1", "Trà sữa thái thơm mùi trà, ngậy , ngọt vừa", "25.000",30 ));
-//        food.add(new FoodDomain("Hotdog", "hotdog2", "Hotdog nóng, ăn ngay", "20.000",15 ));
-//        food.add(new FoodDomain("Bánh Donut", "donut1", "Donut sô cô la, dâu, cam, ...","10.000" ,30 ));
-
         foodAdapter= new FoodAdapter(foodList);
         rcvFoodList.setAdapter(foodAdapter);
 
