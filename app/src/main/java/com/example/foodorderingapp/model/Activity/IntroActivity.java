@@ -48,11 +48,6 @@ public class IntroActivity extends BaseActivity {
                     Intent intent = new Intent(IntroActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 59c8df33ba2ebfa25a17c18fc6e36d1c4d59f0c4
             }
         });
         tvSignup.setOnClickListener(new View.OnClickListener() {
@@ -60,8 +55,6 @@ public class IntroActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(IntroActivity.this,SignUpActivity.class);
                 startActivity(intent);
-
-<<<<<<< HEAD
             }
         });
 
@@ -80,13 +73,8 @@ public class IntroActivity extends BaseActivity {
             startActivity(intent);
             finish(); // Tùy chọn: kết thúc Activity hiện tại sau khi chuyển đến trang chủ
         }
-=======
 
-            }
-        });
->>>>>>> 59c8df33ba2ebfa25a17c18fc6e36d1c4d59f0c4
+
     }
-
-
 
 }
