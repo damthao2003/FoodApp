@@ -41,7 +41,7 @@
 
             <ImageView
                 android:id="@+id/picFood"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="200dp"
                 android:layout_marginTop="15dp"
                 tools:layout_marginBottom="20dp"

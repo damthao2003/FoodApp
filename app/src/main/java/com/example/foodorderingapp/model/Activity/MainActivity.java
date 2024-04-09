@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void bottomNavigation(){
 //        FloatingActionButton floatingActionButton = findViewById(R.id.cardBtn);
-        LinearLayout cardBtn = findViewById(R.id.cardBtn);
-        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+        LinearLayout cardBtn = findViewById(R.id.cartBtn);
+        LinearLayout homeBtn = findViewById(R.id.cartBtn);
 
         cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<CategoryDomain> category = new ArrayList<>();
         category.add(new CategoryDomain("Pizza","cat_1"));
-        category.add(new CategoryDomain("Coca","cat_2"));
-        category.add(new CategoryDomain("Trà sữa","cat_3"));
+        category.add(new CategoryDomain("Burger","cat_2"));
+//        category.add(new CategoryDomain("Coca", "cat_5"));
+        category.add(new CategoryDomain("Drink","cat_3"));
         category.add(new CategoryDomain("Hotdog","cat_4"));
         category.add(new CategoryDomain("Donut","cat_5"));
-        category.add(new CategoryDomain("Burger","cat_6"));
 
         adapter = new CategoryAdaptor((category));
         recyclerViewCategoryList.setAdapter(adapter);

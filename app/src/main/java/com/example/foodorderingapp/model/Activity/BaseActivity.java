@@ -1,5 +1,6 @@
 package com.example.foodorderingapp.model.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -12,6 +13,7 @@ import com.example.foodorderingapp.R;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class BaseActivity extends AppCompatActivity {
@@ -38,4 +40,5 @@ public class BaseActivity extends AppCompatActivity {
             return insets;
         });
     }
+
 }

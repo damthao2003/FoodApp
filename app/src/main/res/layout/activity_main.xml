@@ -34,6 +34,7 @@
                     android:layout_marginStart="136dp"
                     android:layout_marginTop="40dp"
 
+
                     android:textColor="#DD3000"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -69,8 +70,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -117,8 +117,8 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerView2"
-                        android:layout_width="400dp"
-                        android:layout_height="156dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -138,16 +138,15 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="UnknownId">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#f6f6f6"
             app:fabCradleMargin="8dp"
             app:fabCradleRoundedCornerRadius="50dp"
             app:fabCradleVerticalOffset="6dp">
@@ -157,21 +156,20 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/homeBtn"
+                    android:id="@id/cartBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
-                    android:orientation="vertical"
-                    tools:ignore="DuplicateIds">
+                    android:orientation="vertical">
+
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="40dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/home" />
-
+                        app:srcCompat="@drawable/home_icon" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -180,7 +178,7 @@
                         android:text="Trang chủ"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -193,11 +191,11 @@
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="40dp"
+                        android:layout_width="45dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_margin="15dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/person3" />
+                        app:srcCompat="@drawable/profile_icon" />
 
 
                     <TextView
@@ -207,12 +205,12 @@
                         android:text="Tài khoản"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/cardBtn"
+                    android:id="@+id/cartBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -220,11 +218,11 @@
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:layout_width="40dp"
-                        android:layout_height="59dp"
-                        android:layout_gravity="center"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/card" />
+                        app:srcCompat="@drawable/cart_icon" />
 
 
                     <TextView
@@ -234,7 +232,7 @@
                         android:text="Giỏ hàng"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -247,21 +245,21 @@
 
                     <ImageView
                         android:id="@+id/imageView6"
-                        android:layout_width="40dp"
-                        android:layout_height="59dp"
-                        android:layout_gravity="center"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/mess2" />
+                        app:srcCompat="@drawable/mess_icon" />
 
 
                     <TextView
-                        android:id="@id/textView3"
+                        android:id="@+id/textView6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hỗ trợ"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -274,11 +272,11 @@
 
                     <ImageView
                         android:id="@+id/imageView7"
-                        android:layout_width="40dp"
-                        android:layout_height="59dp"
-                        android:layout_gravity="center"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/setting3" />
+                        app:srcCompat="@drawable/settings_icon" />
 
 
                     <TextView
