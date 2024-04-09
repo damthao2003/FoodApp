@@ -2,6 +2,7 @@ package com.example.foodorderingapp.model.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -67,12 +68,15 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
 
         });
+        addToCartBtn=findViewById(R.id.addToCartBtn);
 
         addToCartBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 object.setNumberInCart(numberOrder);
                 managementCart.insertFood(object);
+                Intent intent = new Intent(ShowDetailActivity.this,MainActivity.class);
+                startActivity(intent);
             }
 
         });

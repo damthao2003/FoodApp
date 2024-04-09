@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.example.foodorderingapp.R;
@@ -22,11 +23,13 @@ import com.example.foodorderingapp.model.Adaptor.CategoryAdapter;
 import com.example.foodorderingapp.model.Adaptor.FoodAdapter;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import com.example.foodorderingapp.model.Domain.FoodDomain;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.ArrayList;
 
@@ -46,6 +49,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            String displayName = user.getDisplayName();
+            if (displayName != null) {
+                TextView textView = findViewById(R.id.hi_txt);
+                textView.setText("Chào mừng, " + displayName + "!");
+            } else {
+                // Xử lý lỗi không có tên hiển thị
+                TextView textView = findViewById(R.id.hi_txt);
+                 textView.setText("Chưa có tên hiển thị");
+            }
+        } else {
+            // Hiển thị thông báo người dùng chưa đăng nhập
+            // ...
+            TextView textView = findViewById(R.id.hi_txt);
+            textView.setText("Vui lòng đăng nhập");
+        }
 
         recyclerViewCategory();
         getListCategory();
