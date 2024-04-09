@@ -38,8 +38,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         if(food == null){
             return;
         }
-        holder.foodName.setText(popularFood.get(position).getTitle());
-        holder.fee.setText(String.valueOf(popularFood.get(position).getFee()));
+        holder.foodName.setText(food.getTitle());
+        holder.fee.setText(String.valueOf(food.getFee()));
 
         Glide.with(holder.itemView.getContext()).
                 load(food.getPic()).

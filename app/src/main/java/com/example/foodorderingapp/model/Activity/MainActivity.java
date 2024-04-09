@@ -36,7 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView.Adapter  adapter2;
+//    private RecyclerView.Adapter  adapter2;
 //    private Adapter adapterCate, adapter2;
     private RecyclerView rcvCategoryList , rcvFoodList;
     private CategoryAdapter categoryAdapter;
@@ -72,7 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         getListCategory();
+<<<<<<< HEAD
         recyclerViewFood();
+=======
+          recyclerViewFood();
+          getListFood();
+>>>>>>> 8777693ffbf69f8672dd3430e01bbd66fd78c11f
         bottomNavigation();
     }
 
