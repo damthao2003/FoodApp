@@ -216,6 +216,7 @@
                     android:layout_weight="0.2"
                     android:orientation="vertical">
 
+
                     <ImageView
                         android:id="@+id/imageView5"
                         android:layout_width="50dp"
@@ -223,7 +224,6 @@
                         android:layout_margin="10dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cart_icon" />
-
 
                     <TextView
                         android:id="@+id/textView5"
