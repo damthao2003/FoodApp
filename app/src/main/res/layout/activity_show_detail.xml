@@ -33,7 +33,6 @@
                 android:id="@+id/priceTxt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:text="VNĐ"
                 android:textAlignment="center"
                 android:textColor="#ff5e00"
@@ -42,8 +41,8 @@
             <ImageView
                 android:id="@+id/picFood"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:scaleType="fitCenter"
                 android:layout_height="200dp"
                 android:layout_marginTop="15dp"
