@@ -30,7 +30,7 @@ public class LogoutActivity extends AppCompatActivity {
         ButtonBack = findViewById(R.id.buttonBack); // Ánh xạ nút Back
         Emailtxt = findViewById(R.id.Emailtxt); // Ánh xạ TextView Emailtxt
         passwordtxt = findViewById(R.id.passwordtxt); // Ánh xạ TextView passwordtxt
-        Nametxt = findViewById(R.id.nametxt);
+        Nametxt = findViewById(R.id.Emailtxt);
 
         // Nhận dữ liệu từ Intent
         Intent intent = getIntent();
@@ -58,6 +58,32 @@ public class LogoutActivity extends AppCompatActivity {
                 finish(); // Kết thúc Activity hiện tại
             }
         });
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            String displayName = user.getDisplayName();
+            String displayEmail = user.getEmail();
+
+            if (displayName != null) {
+                TextView name = findViewById(R.id.Emailtxt);
+                name.setText(" " + displayName + "");
+
+                TextView email= findViewById(R.id.passwordtxt);
+                email.setText(" " + displayEmail + "");
+
+
+
+            } else {
+                // Xử lý lỗi không có tên hiển thị
+                TextView textView = findViewById(R.id.Emailtxt);
+                textView.setText("Chưa có tên hiển thị");
+            }
+        } else {
+            // Hiển thị thông báo người dùng chưa đăng nhập
+            // ...
+            TextView textView = findViewById(R.id.Emailtxt);
+            textView.setText("Vui lòng đăng nhập");
+        }
     }
 
     private void logoutUser() {
