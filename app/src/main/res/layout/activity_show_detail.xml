@@ -42,6 +42,9 @@
             <ImageView
                 android:id="@+id/picFood"
                 android:layout_width="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:scaleType="fitCenter"
                 android:layout_height="200dp"
                 android:layout_marginTop="15dp"
                 tools:layout_marginBottom="20dp"
@@ -58,7 +61,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="2dp"
-                    android:layout_weight="0"
                     tools:srcCompat="@drawable/minus" />
 
                 <TextView
@@ -68,7 +70,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="2dp"
-                    android:layout_weight="0"
                     android:text="1"
                     android:textAlignment="center"
                     android:textColor="#373b54"
@@ -79,7 +80,7 @@
                     android:id="@+id/plusBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0"
+
                     tools:srcCompat="@drawable/plus" />
             </LinearLayout>
 
