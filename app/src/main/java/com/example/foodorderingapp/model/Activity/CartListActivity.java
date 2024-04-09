@@ -12,11 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodorderingapp.model.interfaces.ChangeNumberItemListener;
-import com.example.foodorderingapp.model.Activity.IntroActivity;
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.model.helper.ManagementCart;
 import com.example.foodorderingapp.model.Adaptor.CartListAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CartListActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
@@ -41,7 +39,7 @@ public class CartListActivity extends AppCompatActivity {
 
     private void bottomNavigation(){
 //        FloatingActionButton floatingActionButton = findViewById(R.id.cardBtn);
-        LinearLayout cardBtn = findViewById(R.id.cardBtn);
+        LinearLayout cardBtn = findViewById(R.id.cartBtn);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
 
         cardBtn.setOnClickListener(new View.OnClickListener() {
