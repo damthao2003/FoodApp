@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/a1" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/foodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/picCart"
-        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/foodName"
         app:srcCompat="@drawable/minus" />
 
     <TextView
@@ -76,9 +76,9 @@
         android:text="0"
         android:textColor="#373b54"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="@+id/foodName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title" />
+        app:layout_constraintTop_toTopOf="@+id/foodName" />
 
     <TextView
         android:id="@+id/textView4"

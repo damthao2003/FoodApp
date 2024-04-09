@@ -9,7 +9,7 @@
     android:elevation="3dp">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/foodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/pic"
+        android:id="@+id/foodPic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/foodName"
         app:srcCompat="@drawable/milk_tea1" />
 
     <TextView
@@ -47,8 +47,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.223"
-        app:layout_constraintStart_toStartOf="@+id/pic"
-        app:layout_constraintTop_toBottomOf="@+id/pic" />
+        app:layout_constraintStart_toStartOf="@+id/foodPic"
+        app:layout_constraintTop_toBottomOf="@+id/foodPic" />
 
     <TextView
         android:id="@+id/textView12"
@@ -60,10 +60,10 @@
         android:textColor="#FF5D00"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/pic"
+        app:layout_constraintEnd_toEndOf="@+id/foodPic"
         app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toEndOf="@+id/fee"
-        app:layout_constraintTop_toBottomOf="@+id/pic" />
+        app:layout_constraintTop_toBottomOf="@+id/foodPic" />
 
     <TextView
         android:id="@+id/addBtn"
