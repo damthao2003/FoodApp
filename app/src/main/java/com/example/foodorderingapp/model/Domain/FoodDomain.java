@@ -3,25 +3,30 @@ package com.example.foodorderingapp.model.Domain;
 import java.io.Serializable;
 
 public class FoodDomain implements Serializable {
+    private int id;
     private String title;
     private String pic;
     private String description;
     private Double fee;
     private int numberInCart;
 
-    public FoodDomain(String title, String pic, String description, String fee) {
+    public FoodDomain(){}
+
+    public FoodDomain(int id, String title, String pic, String description, Double fee, int numberInCart) {
+        this.id = id;
         this.title = title;
         this.pic = pic;
         this.description = description;
-        this.fee = Double.valueOf(fee);
+        this.fee = fee;
+        this.numberInCart = numberInCart;
     }
 
-    public FoodDomain(String title, String pic, String description, String fee, int numberInCart) {
-        this.title = title;
-        this.pic = pic;
-        this.description = description;
-        this.fee = Double.valueOf(fee);
-        this.numberInCart = numberInCart;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -52,8 +57,8 @@ public class FoodDomain implements Serializable {
         return fee;
     }
 
-    public void setFee(String fee) {
-        this.fee = Double.valueOf(fee);
+    public void setFee(Double fee) {
+        this.fee = fee;
     }
 
     public int getNumberInCart() {

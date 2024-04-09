@@ -1,5 +1,6 @@
 package com.example.foodorderingapp.model.Adaptor;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,69 +17,68 @@ import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import java.util.ArrayList;
 
-public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
-   ArrayList<CategoryDomain> categoryDomains;
+   ArrayList<CategoryDomain> categoryList;
 
-    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains) {
-        this.categoryDomains = categoryDomains;
+    public CategoryAdapter(ArrayList<CategoryDomain> categoryList) {
+        this.categoryList = categoryList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category, parent, false);
-        return new ViewHolder(inflate);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdaptor.ViewHolder holder, int position) {
-        holder.categoryName.setText(categoryDomains.get(position).getTitle());
-        String picUrl = "";
+    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+        CategoryDomain cate = categoryList.get(position);
+        if(cate == null){
+            return;
+        }
+        holder.categoryName.setText(cate.getTitle());
+
+//        String picUrl = "";
         switch (position){
             case 0:{
-                picUrl="cat_1";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
                 break;
             }
             case 1:{
-                picUrl="cat_2";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background2));
                 break;
             }
             case 2:{
-                picUrl="cat_3";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background3));
                 break;
             }
             case 3:{
-                picUrl="cat_4";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background4));
                 break;
             }
             case 4:{
-                picUrl="cat_5";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background5));
                 break;
             }
             case 5:{
-                picUrl="cat_6";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background6));
                 break;
             }
         }
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl, "drawable", holder.itemView.getContext().getPackageName());
-
 
         Glide.with(holder.itemView.getContext()).
-                load(drawableResourceId).
+                load(cate.getPic()).
                 into(holder.categoryPic);
 
     }
 
     @Override
     public int getItemCount() {
-
-        return categoryDomains.size();
+        if(categoryList != null){
+            return categoryList.size();
+        }
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
