@@ -45,6 +45,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:scaleType="fitCenter"
+
                 android:layout_height="200dp"
                 android:layout_marginTop="15dp"
                 tools:layout_marginBottom="20dp"
