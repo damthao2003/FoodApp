@@ -1,8 +1,9 @@
 package com.example.foodorderingapp.model.Activity;
 
+import static androidx.recyclerview.widget.RecyclerView.*;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,16 +36,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-//    private RecyclerView.Adapter  adapter2;
+    //    private RecyclerView.Adapter  adapter2;
 //    private Adapter adapterCate, adapter2;
     private RecyclerView rcvCategoryList , rcvFoodList;
     private CategoryAdapter categoryAdapter;
     private FoodAdapter foodAdapter;
+
     private TextView cateName, foodname, fee;
     private ImageView catePic, foodPic;
     private ArrayList<CategoryDomain> categoryList;
     private ArrayList<FoodDomain> foodList;
-    private ConstraintLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 // Xử lý lỗi không có tên hiển thị
                 TextView textView = findViewById(R.id.hi_txt);
-                 textView.setText("Chưa có tên hiển thị");
+                textView.setText("Chưa có tên hiển thị");
             }
         } else {
             // Hiển thị thông báo người dùng chưa đăng nhập
@@ -75,10 +77,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewFood();
         getListPopularFood();
 
-        bottomNavigation();
+        recyclerViewFood();
+        getListFood();
+
     }
 
-
+    private  void initUi(){
+    }
     private void bottomNavigation(){
         ImageView imageView5 = findViewById(R.id.imageView5);
         ImageView imageView3 = findViewById(R.id.imageView3);
@@ -105,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     private void recyclerViewCategory(){
         cateName = findViewById(R.id.cateName);
         catePic = findViewById(R.id.catePic);
@@ -120,14 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    private void mainLayoutCate(){
-        mainLayout.findViewById(R.id.mainLayout);
-
-
-    }
-
-
     private void recyclerViewFood(){
         foodname = findViewById(R.id.foodName);
         foodPic = findViewById(R.id.foodPic);
@@ -148,8 +144,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Category");
         // Read from the database
-
-
         myRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
@@ -174,9 +168,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database
-        int limit = 5;
-        c1:
-        myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -194,9 +186,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
-
-
-
 }

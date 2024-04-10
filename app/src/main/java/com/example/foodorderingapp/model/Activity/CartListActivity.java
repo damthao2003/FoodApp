@@ -101,19 +101,26 @@ public class CartListActivity extends AppCompatActivity {
         }
     }
 
-    private void CalculateCart(){
+    private void CalculateCart() {
         double percentTax = 0.02;
         double delivery = 10;
 
-        tax = Math.round(managementCart.getTotalFee() * percentTax) * 100 / 100;
-        double total = Math.round(managementCart.getTotalFee() + tax + delivery) * 100 / 100;
-        double itemTotal = Math.round(managementCart.getTotalFee() * 100/ 100);
+        tax = Math.round(managementCart.getTotalFee() * percentTax);
+        double total = Math.round(managementCart.getTotalFee() + tax + delivery);
 
-        totalFeeTxt.setText("VND " + itemTotal);
-        taxTxt.setText("VND " + tax);
-        deliveryTxt.setText("VND " + delivery);
-        totalTxt.setText("VND " + total);
+        // Chuyển đổi số tiền sang định dạng chuỗi với ký hiệu VNĐ
+        String formattedTotalFee = String.format("%,. 0f000", managementCart.getTotalFee()) + " VND";
+        String formattedTax = String.format("%,. 0f000", tax) + " VND";
+        String formattedDelivery = String.format("%,. 0f000", delivery) + " VND";
+        String formattedTotal = String.format("%,. 0f000", total) + " VND";
+
+        // Đặt văn bản cho các TextView
+        totalFeeTxt.setText(formattedTotalFee);
+        taxTxt.setText(formattedTax);
+        deliveryTxt.setText(formattedDelivery);
+        totalTxt.setText(formattedTotal);
     }
+
     private void showPaymentSuccessDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(Html.fromHtml("<font color='#FF0000'>Thanh toán thành công</font>"))
