@@ -51,10 +51,11 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/profile" />
 
+
                 <EditText
                     android:id="@+id/searchBtn"
-                    android:layout_width="308dp"
-                    android:layout_height="50dp"
+                    android:layout_width="248dp"
+                    android:layout_height="43dp"
                     android:layout_marginTop="120dp"
                     android:background="@drawable/search_background"
                     android:drawableStart="@android:drawable/ic_menu_search"
@@ -63,20 +64,34 @@
                     android:hint="Find your food"
                     android:inputType="text"
                     android:paddingStart="10sp"
-                    android:text="Find your food"
                     android:textColor="#858282"
                     android:textSize="14sp"
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.155"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:focusableInTouchMode="true"
+                    android:clickable="true"
+                    android:singleLine="true"
+                    android:text=""  />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="64dp"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="172dp"
+                    android:layout_marginTop="4dp"
+
+                    android:text="Tìm"
+                    app:layout_constraintStart_toStartOf="@+id/hi_txt"
+                    app:layout_constraintTop_toTopOf="@+id/searchBtn" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/searchBtn"
                     tools:ignore="MissingConstraints">
@@ -97,7 +112,7 @@
                         android:id="@+id/recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"

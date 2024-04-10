@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -37,9 +38,12 @@ public class ListFoodActivity extends AppCompatActivity {
         binding= ActivityListFoodBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getIntentExtra();
-
+//        getIntentExtra();
+//        searchText = getIntent().getStringExtra("searchText");
         initList();
+        Intent intent = getIntent();
+        String searchText = intent.getStringExtra("searchText");
+
 
     }
 
@@ -64,25 +68,37 @@ public class ListFoodActivity extends AppCompatActivity {
         ArrayList<FoodDomain> foodList = new ArrayList<>();
 
         Query query;
-        if(inSearch){
-            query = myRef.orderByChild("title").startAt(searchText).endAt(searchText+ '\uf8ff');
-        }else{
-            query = myRef.orderByChild("CategoryId");
+        if (searchText != null && !searchText.isEmpty()) {
+            // Case-insensitive search by title
+            query = myRef.orderByChild("title").startAt(searchText.toLowerCase()).endAt(searchText.toLowerCase() + "\uf8ff");
+        } else {
+            // Default behavior based on category
+            query = myRef.orderByChild("CategoryId").equalTo(categoryId);
         }
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        foodList.add(dataSnapshot.getValue(FoodDomain.class));
-                    }
-                    if(foodList.size() > 0){
-                        binding.foodListView.setLayoutManager(new GridLayoutManager(ListFoodActivity.this, 2));
-                        adapterListFood = new FoodListAdapter(foodList);
-                        binding.foodListView.setAdapter(adapterListFood);
-                    }
-                    binding.progressBar2.setVisibility(View.GONE);
+                foodList.clear();  // Clear existing data before adding new
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    FoodDomain food = dataSnapshot.getValue(FoodDomain.class);
+                    foodList.add(food);
                 }
+
+                // Update adapter and UI
+                adapterListFood = new FoodListAdapter(foodList);
+                binding.foodListView.setAdapter(adapterListFood);
+                binding.progressBar2.setVisibility(View.GONE);
+//                if(snapshot.exists()){
+//                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+//                        foodList.add(dataSnapshot.getValue(FoodDomain.class));
+//                    }
+//                    if(foodList.size() > 0){
+//                        binding.foodListView.setLayoutManager(new GridLayoutManager(ListFoodActivity.this, 2));
+//                        adapterListFood = new FoodListAdapter(foodList);
+//                        binding.foodListView.setAdapter(adapterListFood);
+//                    }
+//                    binding.progressBar2.setVisibility(View.GONE);
+//                }
             }
 
             @Override

@@ -1,6 +1,7 @@
 package com.example.foodorderingapp.model.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,9 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -19,19 +25,24 @@ import android.widget.Toast;
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.model.Adaptor.CategoryAdapter;
 import com.example.foodorderingapp.model.Adaptor.FoodAdapter;
+import com.example.foodorderingapp.model.Adaptor.FoodListAdapter;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import com.example.foodorderingapp.model.Domain.FoodDomain;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 //    private RecyclerView.Adapter  adapter2;
@@ -44,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<CategoryDomain> categoryList;
     private ArrayList<FoodDomain> foodList;
     private ConstraintLayout mainLayout;
+    String searchText;
+    private Timer timer = new Timer();
+    private final long DELAY_MILLIS = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,18 +85,23 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         getListCategory();
-<<<<<<< HEAD
-        recyclerViewFood();
-        getListFood();
-=======
 
         recyclerViewFood();
 
-          recyclerViewFood();
-          getListFood();
-
->>>>>>> 9d0a2faf7ee26b1e7f8c3aaa527bc477800c36b6
         bottomNavigation();
+        EditText editText = findViewById(R.id.searchBtn);
+        Button searchButton = findViewById(R.id.button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchText = editText.getText().toString();
+                Intent intent = new Intent(MainActivity.this, ListFoodActivity.class);
+                intent.putExtra("searchText", searchText);
+                startActivity(intent);
+
+                editText.clearFocus();
+            }
+        });
     }
 
 
@@ -91,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout homeBtn = findViewById(R.id.cartBtn);
         ImageView imageView4 = findViewById(R.id.imageView4);
 
-        imageView4.setOnClickListener(new OnClickListener() {
+        imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
@@ -177,30 +196,59 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getListFood(){
+    private void getListFood(String searchText){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
-        // Read from the database
-        int limit = 5;
-        c1:
-        myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
-            @SuppressLint("NotifyDataSetChanged")
+    int limit = 5;
+        foodList.clear();  // Clear existing data before new search
+
+        Query query;
+        if (searchText.isEmpty()) {
+            // No search term, fetch initial list
+            query = myRef.limitToFirst(limit);
+        } else {
+            // Search based on title (case-insensitive)
+            query = myRef.orderByChild("title").startAt(searchText.toLowerCase()).endAt(searchText.toLowerCase() + '\uf8ff');
+        }
+
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     FoodDomain food = dataSnapshot.getValue(FoodDomain.class);
                     foodList.add(food);
                 }
                 foodAdapter.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Failed to read value
-                Toast.makeText(MainActivity.this, "Get list food failed", Toast.LENGTH_SHORT).show();
-
-
+                // Handle errors
             }
         });
+
+
+        // Read from the database
+//        int limit = 5;
+//        c1:
+//        myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
+//            @SuppressLint("NotifyDataSetChanged")
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+//                    FoodDomain food = dataSnapshot.getValue(FoodDomain.class);
+//                    foodList.add(food);
+//                }
+//                foodAdapter.notifyDataSetChanged();
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                // Failed to read value
+//                Toast.makeText(MainActivity.this, "Get list food failed", Toast.LENGTH_SHORT).show();
+//
+//
+//            }
+//        });
 
     }
 
