@@ -18,11 +18,14 @@ public class ShowDetailActivity extends AppCompatActivity {
 
     private TextView addToCartBtn;
     private TextView titleTxt, feeTxt, descriptionTxt, numberOrderTxt;
-    private ImageView plusBtn, minusBtn, picFood;
+    private ImageView plusNumberFood;
+    private ImageView minusNumberFood;
+    private ImageView foodFic;
+
 
     private FoodDomain object;
     private ManagementCart managementCart;
-//    private Object Glide;
+    //    private Object Glide;
     int numberOrder = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,31 +37,30 @@ public class ShowDetailActivity extends AppCompatActivity {
         getBundle();
     }
 
-     private void getBundle() {
-
+    private void getBundle() {
         object= (FoodDomain) getIntent().getSerializableExtra("object");
-        int drawableResourceId=this.getResources().getIdentifier(object.getPic(),"drawable", this.getPackageName());
+        String imageUrl = object.getPic(); // Đây là URL của ảnh từ cơ sở dữ liệu Firebase của bạn
 
         Glide.with(this)
-                .load(drawableResourceId)
-                .into(picFood);
+                .load(imageUrl)
+                .into(foodFic);
 
 
         titleTxt.setText(object.getTitle());
-        feeTxt.setText("$" +object.getFee());
+        feeTxt.setText(object.getFee() + " VNĐ");
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
 
-
-        plusBtn.setOnClickListener(new View.OnClickListener(){
+        plusNumberFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 numberOrder=numberOrder + 1;
                 numberOrderTxt.setText(String.valueOf(numberOrder));
             }
-
         });
-        minusBtn.setOnClickListener(new View.OnClickListener(){
+
+
+        minusNumberFood.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 if(numberOrder>1){
@@ -68,7 +70,8 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
 
         });
-        addToCartBtn=findViewById(R.id.addToCartBtn);
+
+
 
         addToCartBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -88,8 +91,9 @@ public class ShowDetailActivity extends AppCompatActivity {
         feeTxt=findViewById(R.id.priceTxt);
         descriptionTxt=findViewById(R.id.descriptionTxt);
         numberOrderTxt=findViewById(R.id.numberOderTxt);
-        plusBtn=findViewById(R.id.plusBtn);
-        minusBtn = findViewById(R.id.minusBtn);
-        picFood = findViewById(R.id.picFood);
+        plusNumberFood=findViewById(R.id.plusNumberBtn);
+        minusNumberFood = findViewById(R.id.minusNumberBtn);
+
+        foodFic = findViewById(R.id.picFood);
     }
 }

@@ -21,6 +21,7 @@
         <activity
             android:name=".model.Activity.Logout"
             android:exported="false" />
+        <activity android:name=".model.Activity.CartListActivity"/>
         <activity
             android:name=".model.Activity.ShowDetailActivity"
             android:exported="false" />

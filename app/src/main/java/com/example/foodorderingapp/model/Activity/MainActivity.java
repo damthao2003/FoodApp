@@ -87,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void bottomNavigation(){
-        LinearLayout cardBtn = findViewById(R.id.cartBtn);
-        LinearLayout homeBtn = findViewById(R.id.cartBtn);
+        ImageView imageView5 = findViewById(R.id.imageView5);
+        ImageView imageView3 = findViewById(R.id.imageView3);
         ImageView imageView4 = findViewById(R.id.imageView4);
 
         imageView4.setOnClickListener(new OnClickListener() {
@@ -99,13 +99,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cardBtn.setOnClickListener(new View.OnClickListener() {
+        imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, CartListActivity.class));
             }
         });
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
