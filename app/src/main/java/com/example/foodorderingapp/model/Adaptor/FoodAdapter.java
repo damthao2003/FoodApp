@@ -1,5 +1,6 @@
 package com.example.foodorderingapp.model.Adaptor;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FoodAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FoodAdapter.ViewHolder holder,  int position) {
         FoodDomain food = popularFood.get(position);
         if(food == null){
             return;
