@@ -110,10 +110,11 @@
         android:layout_margin="16dp"
         android:background="@drawable/orange_button"
         android:gravity="center"
-        android:text="Add to cart"
+        android:text="Thêm vào giỏ hàng"
         android:textColor="#ffffff"
         android:textSize="23dp"
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

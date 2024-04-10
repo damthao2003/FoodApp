@@ -34,7 +34,7 @@ public class ManagementCart {
             listFood.add(item);
         }
         tinyDB.putListObject("CartList", listFood);
-        Toast.makeText(context, "Added To Your Cart", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show();
     }
     // Phương thức để xóa tất cả các mặt hàng khỏi giỏ hàng
     public void clearCart() {

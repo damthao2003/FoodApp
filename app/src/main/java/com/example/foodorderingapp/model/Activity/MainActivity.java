@@ -75,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
         getListCategory();
 
         recyclerViewFood();
+        getListPopularFood();
 
         recyclerViewFood();
         getListFood();
 
-        bottomNavigation();
     }
 
     private  void initUi(){
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView3 = findViewById(R.id.imageView3);
         ImageView imageView4 = findViewById(R.id.imageView4);
 
-        imageView4.setOnClickListener(new OnClickListener() {
+        imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getListFood(){
+    private void getListPopularFood(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database
