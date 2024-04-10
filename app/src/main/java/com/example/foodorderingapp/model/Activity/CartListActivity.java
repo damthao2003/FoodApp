@@ -109,10 +109,10 @@ public class CartListActivity extends AppCompatActivity {
         double total = Math.round(managementCart.getTotalFee() + tax + delivery);
 
         // Chuyển đổi số tiền sang định dạng chuỗi với ký hiệu VNĐ
-        String formattedTotalFee = String.format("%,. 0f000", managementCart.getTotalFee()) + " VND";
-        String formattedTax = String.format("%,. 0f000", tax) + " VND";
-        String formattedDelivery = String.format("%,. 0f000", delivery) + " VND";
-        String formattedTotal = String.format("%,. 0f000", total) + " VND";
+        String formattedTotalFee = String.format("%,.0f000", managementCart.getTotalFee()) + " VND";
+        String formattedTax = String.format("%,.0f000", tax) + " VND";
+        String formattedDelivery = String.format("%,.0f000", delivery) + " VND";
+        String formattedTotal = String.format("%,.0f000", total) + " VND";
 
         // Đặt văn bản cho các TextView
         totalFeeTxt.setText(formattedTotalFee);
