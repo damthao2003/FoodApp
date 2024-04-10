@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.model.Activity.ShowDetailActivity;
-import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import com.example.foodorderingapp.model.Domain.FoodDomain;
 
 import java.util.ArrayList;
@@ -74,7 +73,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             foodName = itemView.findViewById(R.id.foodName);
-            fee = itemView.findViewById(R.id.fee);
+            fee = itemView.findViewById(R.id.feeTxt);
             foodPic = itemView.findViewById(R.id.foodPic);
             addBtn = itemView.findViewById(R.id.addBtn);
 

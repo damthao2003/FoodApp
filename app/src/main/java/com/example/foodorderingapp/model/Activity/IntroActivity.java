@@ -45,7 +45,7 @@ public class IntroActivity extends BaseActivity {
             }
         });
 
-       onStart();
+        onStart();
 
     }
     @Override
