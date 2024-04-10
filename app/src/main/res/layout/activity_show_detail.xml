@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:text="VNĐ"
+                android:text="000 VND"
                 android:textAlignment="center"
                 android:textColor="#ff5e00"
                 android:textSize="24sp" />

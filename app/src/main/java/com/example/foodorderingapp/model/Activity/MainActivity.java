@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-//    private RecyclerView.Adapter  adapter2;
+    //    private RecyclerView.Adapter  adapter2;
 //    private Adapter adapterCate, adapter2;
     private RecyclerView rcvCategoryList , rcvPopularFoodList;
     private CategoryAdapter categoryAdapter;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 // Xử lý lỗi không có tên hiển thị
                 TextView textView = findViewById(R.id.hi_txt);
-                 textView.setText("Chưa có tên hiển thị");
+                textView.setText("Chưa có tên hiển thị");
             }
         } else {
             // Hiển thị thông báo người dùng chưa đăng nhập
