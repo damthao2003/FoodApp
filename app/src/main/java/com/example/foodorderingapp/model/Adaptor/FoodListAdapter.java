@@ -65,7 +65,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.viewho
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
-            titleTxt = itemView.findViewById(R.id.foodTxt);
+            titleTxt = itemView.findViewById(R.id.titleTxt);
             feeTxt = itemView.findViewById(R.id.feeTxt);
             startTxt = itemView.findViewById(R.id.startTxt);
             pic = itemView.findViewById(R.id.img);

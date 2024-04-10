@@ -108,7 +108,7 @@ public class ListFoodActivity extends AppCompatActivity {
 
     private  void recyecleListFood(){
 
-        foodName = findViewById(R.id.foodTxt);
+        foodName = findViewById(R.id.titleTxt);
 
 
 
