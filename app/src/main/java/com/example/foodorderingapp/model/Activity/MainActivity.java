@@ -73,34 +73,30 @@ public class MainActivity extends AppCompatActivity {
         getListCategory();
 
         recyclerViewFood();
-<<<<<<< HEAD
-        getListFood();
-=======
         getListPopularFood();
->>>>>>> c7d4ed8a59da06019d7468a264445d3fca5e5b12
 
         bottomNavigation();
     }
 
 
     private void bottomNavigation(){
-<<<<<<< HEAD
-        LinearLayout cardBtn = findViewById(R.id.cartBtn);
-        LinearLayout homeBtn = findViewById(R.id.cartBtn);
-        ImageView imageView4 = findViewById(R.id.imageView4);
 
-        imageView4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
-                startActivity(intent);
-            }
-        });
-=======
+//        LinearLayout cardBtn = findViewById(R.id.cartBtn);
+//        LinearLayout homeBtn = findViewById(R.id.cartBtn);
+//        ImageView imageView4 = findViewById(R.id.imageView4);
+//
+//        imageView4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
         ImageView imageView5 = findViewById(R.id.imageView5);
         ImageView imageView3 = findViewById(R.id.imageView3);
         ImageView imageView4 = findViewById(R.id.imageView4);
->>>>>>> c7d4ed8a59da06019d7468a264445d3fca5e5b12
+
 
         imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
