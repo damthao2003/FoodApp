@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
@@ -70,8 +71,17 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         getListCategory();
+<<<<<<< HEAD
         recyclerViewFood();
         getListFood();
+=======
+
+        recyclerViewFood();
+
+          recyclerViewFood();
+          getListFood();
+
+>>>>>>> 9d0a2faf7ee26b1e7f8c3aaa527bc477800c36b6
         bottomNavigation();
     }
 
@@ -79,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
     private void bottomNavigation(){
         LinearLayout cardBtn = findViewById(R.id.cartBtn);
         LinearLayout homeBtn = findViewById(R.id.cartBtn);
+        ImageView imageView4 = findViewById(R.id.imageView4);
+
+        imageView4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
