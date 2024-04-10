@@ -1,6 +1,5 @@
 package com.example.foodorderingapp.model.Adaptor;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +19,22 @@ import java.util.ArrayList;
 
 public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.viewholder> {
     ArrayList<FoodDomain> items;
-    Context context;
+//    Context context;
 
     public FoodListAdapter(ArrayList<FoodDomain> items) {
         this.items = items;
     }
 
-    @NonNull
     @Override
-    public FoodListAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context = parent.getContext();
-        View inflate = LayoutInflater.from(context).inflate(R.layout.viewholder_list_food,parent, false);
-        return new viewholder(inflate);
+//    public FoodListAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+////        context = parent.getContext();
+////        View inflate = LayoutInflater.from(context).inflate(R.layout.viewholder_list_food,parent, false);
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_list_food,parent, false);
+//        return new viewholder(view);
+//    }
+    public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_list_food,parent, false);
+        return new viewholder(view);
     }
 
     @Override
@@ -40,7 +43,11 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.viewho
         holder.feeTxt.setText(String.valueOf(items.get(position).getFee()));
         holder.startTxt.setText(items.get(position).getStart());
 
-        Glide.with(context)
+//        Glide.with(context)
+//                .load(items.get(position).getPic())
+//                .transform(new CenterCrop(), new RoundedCorners(30))
+//                .into(holder.pic);
+        Glide.with(holder.itemView.getContext())
                 .load(items.get(position).getPic())
                 .transform(new CenterCrop(), new RoundedCorners(30))
                 .into(holder.pic);
@@ -58,11 +65,10 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.viewho
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
-
-            titleTxt = itemView.findViewById(R.id.titleTxt);
+            titleTxt = itemView.findViewById(R.id.foodTxt);
             feeTxt = itemView.findViewById(R.id.feeTxt);
             startTxt = itemView.findViewById(R.id.startTxt);
-            pic = itemView.findViewById(R.id.pic);
+            pic = itemView.findViewById(R.id.img);
         }
     }
 }

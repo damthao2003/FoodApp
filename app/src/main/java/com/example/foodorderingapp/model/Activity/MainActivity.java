@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
@@ -70,8 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         getListCategory();
+
         recyclerViewFood();
         getListFood();
+
         bottomNavigation();
     }
 
@@ -79,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
     private void bottomNavigation(){
         LinearLayout cardBtn = findViewById(R.id.cartBtn);
         LinearLayout homeBtn = findViewById(R.id.cartBtn);
+        ImageView imageView4 = findViewById(R.id.imageView4);
+
+        imageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override

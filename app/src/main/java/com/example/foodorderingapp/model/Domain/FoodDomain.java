@@ -2,7 +2,7 @@ package com.example.foodorderingapp.model.Domain;
 
 import java.io.Serializable;
 
-public class FoodDomain implements Serializable {
+public class FoodDomain implements Serializable  {
     private int id;
     private String title;
     private String pic;
@@ -10,6 +10,7 @@ public class FoodDomain implements Serializable {
     private Double fee;
     private int start;
     private int numberInCart;
+    private int categoryId;
 
     public FoodDomain(){}
 
@@ -20,6 +21,7 @@ public class FoodDomain implements Serializable {
         this.description = description;
         this.fee = fee;
         this.start = start;
+        this.categoryId = numberInCart;
         this.numberInCart = numberInCart;
     }
 
@@ -77,5 +79,13 @@ public class FoodDomain implements Serializable {
 
     public void setNumberInCart(int numberInCart) {
         this.numberInCart = numberInCart;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }

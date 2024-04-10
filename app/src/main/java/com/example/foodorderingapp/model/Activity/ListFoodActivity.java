@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.databinding.ActivityListFoodBinding;
-import com.example.foodorderingapp.model.Adaptor.FoodAdapter;
 import com.example.foodorderingapp.model.Adaptor.FoodListAdapter;
 import com.example.foodorderingapp.model.Domain.FoodDomain;
 import com.google.firebase.database.DataSnapshot;
@@ -21,15 +23,19 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
 public class ListFoodActivity extends AppCompatActivity {
     ActivityListFoodBinding binding;
     private RecyclerView.Adapter adapterListFood;
+    private RecyclerView rcvFoodList;
     private int categoryId;
     private String categoryname;
+    private TextView categoryTitle;
+    private TextView foodName , fee;
+    private ImageView foodPic;
     private String searchText;
     private boolean inSearch;
+    private FoodListAdapter foodListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +44,51 @@ public class ListFoodActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getIntentExtra();
-
         initList();
 
+    }
+
+    private void initList() {
+//        rcvFoodList = findViewById(R.id.foodListView);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Food");
+        binding.progressBar2.setVisibility(View.VISIBLE);
+        ArrayList<FoodDomain> foodList = new ArrayList<>();
+
+        Query query;
+        if(inSearch){
+            query = myRef.orderByChild("title").startAt(searchText).endAt(searchText+ '\uf8ff');
+        }else{
+            query = myRef.orderByChild("categoryId").equalTo(categoryId);
+        }
+//             Query query = myRef.orderByChild("categoryId").equalTo(categoryId);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                        foodList.add(dataSnapshot.getValue(FoodDomain.class));
+                    }
+                    if(foodList.size() > 0){
+//                        rcvFoodList.setLayoutManager(new GridLayoutManager(ListFoodActivity.this, 2));
+                        binding.foodListView.setLayoutManager(new GridLayoutManager(ListFoodActivity.this, 2));
+//                        foodListAdapter = new FoodListAdapter(foodList);
+                        adapterListFood = new FoodListAdapter(foodList);
+//                        rcvFoodList.setAdapter(foodListAdapter);
+                        binding.foodListView.setAdapter(adapterListFood);
+                    }
+                    binding.progressBar2.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ListFoodActivity.this, "Get list food failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     private void getIntentExtra() {
@@ -57,38 +105,12 @@ public class ListFoodActivity extends AppCompatActivity {
             }
         });
     }
-    private void initList() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Food");
-        binding.progressBar2.setVisibility(View.VISIBLE);
-        ArrayList<FoodDomain> foodList = new ArrayList<>();
 
-        Query query;
-        if(inSearch){
-            query = myRef.orderByChild("title").startAt(searchText).endAt(searchText+ '\uf8ff');
-        }else{
-            query = myRef.orderByChild("CategoryId");
-        }
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        foodList.add(dataSnapshot.getValue(FoodDomain.class));
-                    }
-                    if(foodList.size() > 0){
-                        binding.foodListView.setLayoutManager(new GridLayoutManager(ListFoodActivity.this, 2));
-                        adapterListFood = new FoodListAdapter(foodList);
-                        binding.foodListView.setAdapter(adapterListFood);
-                    }
-                    binding.progressBar2.setVisibility(View.GONE);
-                }
-            }
+    private  void recyecleListFood(){
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        foodName = findViewById(R.id.foodTxt);
 
-            }
-        });
+
+
     }
 }

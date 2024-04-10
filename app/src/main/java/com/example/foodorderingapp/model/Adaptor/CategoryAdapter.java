@@ -1,6 +1,7 @@
 package com.example.foodorderingapp.model.Adaptor;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.foodorderingapp.R;
+import com.example.foodorderingapp.model.Activity.ListFoodActivity;
+import com.example.foodorderingapp.model.Activity.ShowDetailActivity;
 import com.example.foodorderingapp.model.Domain.CategoryDomain;
 import java.util.ArrayList;
 
@@ -32,7 +35,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder,int position) {
         CategoryDomain cate = categoryList.get(position);
         if(cate == null){
             return;
@@ -41,7 +44,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         switch (position){
             case 0:{
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                holder.mainLayout.setId(cate.getId());
+//                holder.mainLayout.setId(cate.getId());
                 break;
             }
             case 1:{
@@ -69,6 +72,23 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         Glide.with(holder.itemView.getContext()).
                 load(cate.getPic()).
                 into(holder.categoryPic);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(holder.itemView.getContext(), ListFoodActivity.class);
+//                intent.putExtra("CategoryId", categoryList.get(position).getId());
+//                intent.putExtra("CategoryName", categoryList.get(position).getTitle());
+//                holder.itemView.getContext().startActivity(intent);
+
+                Intent intent = new Intent(holder.itemView.getContext(), ListFoodActivity.class);
+                intent.putExtra("CategoryId", categoryList.get(position).getId());
+                intent.putExtra("CategoryName", categoryList.get(position).getTitle());
+                holder.itemView.getContext().startActivity(intent);
+
+
+            }
+        });
 
     }
 
