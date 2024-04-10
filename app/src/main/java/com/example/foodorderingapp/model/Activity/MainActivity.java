@@ -77,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewFood();
         getListPopularFood();
 
-        recyclerViewFood();
-        getListFood();
+       bottomNavigation();
 
     }
 
