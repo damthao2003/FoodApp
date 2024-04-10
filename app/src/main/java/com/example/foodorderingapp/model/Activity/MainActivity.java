@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 //    private RecyclerView.Adapter  adapter2;
 //    private Adapter adapterCate, adapter2;
-    private RecyclerView rcvCategoryList , rcvFoodList;
+    private RecyclerView rcvCategoryList , rcvPopularFoodList;
     private CategoryAdapter categoryAdapter;
     private FoodAdapter foodAdapter;
     private TextView cateName, foodname, fee;
@@ -146,14 +146,14 @@ public class MainActivity extends AppCompatActivity {
         foodname = findViewById(R.id.foodName);
         foodPic = findViewById(R.id.foodPic);
         fee = findViewById(R.id.feeTxt);
-        rcvFoodList = findViewById(R.id.recyclerView2);
+        rcvPopularFoodList = findViewById(R.id.recyclerView2);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        rcvFoodList.setLayoutManager(linearLayoutManager);
+        rcvPopularFoodList.setLayoutManager(linearLayoutManager);
 
         foodList = new ArrayList<>();
         foodAdapter= new FoodAdapter(foodList);
-        rcvFoodList.setAdapter(foodAdapter);
+        rcvPopularFoodList.setAdapter(foodAdapter);
 
 
     }
@@ -189,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database
         int limit = 5;
-        c1:
         myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
