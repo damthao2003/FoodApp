@@ -38,11 +38,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             return;
         }
         holder.categoryName.setText(cate.getTitle());
-
-//        String picUrl = "";
         switch (position){
             case 0:{
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
+                holder.mainLayout.setId(cate.getId());
                 break;
             }
             case 1:{

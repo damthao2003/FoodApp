@@ -8,6 +8,7 @@ public class FoodDomain implements Serializable {
     private String pic;
     private String description;
     private Double fee;
+    private int start;
     private int numberInCart;
 
     public FoodDomain(){}
@@ -18,6 +19,7 @@ public class FoodDomain implements Serializable {
         this.pic = pic;
         this.description = description;
         this.fee = fee;
+        this.start = start;
         this.numberInCart = numberInCart;
     }
 
@@ -59,6 +61,14 @@ public class FoodDomain implements Serializable {
 
     public void setFee(Double fee) {
         this.fee = fee;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
     }
 
     public int getNumberInCart() {

@@ -6,7 +6,8 @@ public class CategoryDomain {
     private  String pic;
 
     public CategoryDomain(){}
-    public CategoryDomain(String title, String pic, int id) {
+
+    public CategoryDomain(int id, String title, String pic) {
         this.id = id;
         this.title = title;
         this.pic = pic;
@@ -35,4 +36,5 @@ public class CategoryDomain {
     public void setPic(String pic) {
         this.pic = pic;
     }
+
 }

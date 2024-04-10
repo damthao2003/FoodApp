@@ -2,10 +2,15 @@ package com.example.foodorderingapp.model.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +20,7 @@ import com.example.foodorderingapp.model.interfaces.ChangeNumberItemListener;
 import com.example.foodorderingapp.R;
 import com.example.foodorderingapp.model.helper.ManagementCart;
 import com.example.foodorderingapp.model.Adaptor.CartListAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CartListActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
@@ -22,6 +28,7 @@ public class CartListActivity extends AppCompatActivity {
     private ManagementCart managementCart;
     TextView totalFeeTxt, taxTxt, deliveryTxt, totalTxt, emptyTxt;
     private double tax;
+    private ImageView imageView;
     private ScrollView scrollView;
 
 
@@ -35,26 +42,35 @@ public class CartListActivity extends AppCompatActivity {
         initList();
         CalculateCart();
         bottomNavigation();
+        Button thanhToanButton = findViewById(R.id.button2);
+        thanhToanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPaymentSuccessDialog();
+            }
+        });
     }
 
     private void bottomNavigation(){
-//        FloatingActionButton floatingActionButton = findViewById(R.id.cardBtn);
-        LinearLayout cardBtn = findViewById(R.id.cartBtn);
-        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+//        LinearLayout cardBtn = findViewById(R.id.cartBtn);
+//        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+        ImageView imageView5 = findViewById(R.id.imageView5);
+        ImageView imageView3 = findViewById(R.id.imageView3);
 
-        cardBtn.setOnClickListener(new View.OnClickListener() {
+        imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CartListActivity.this, CartListActivity.class));
+                    startActivity(new Intent(CartListActivity.this, CartListActivity.class));
             }
         });
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+
+        imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CartListActivity.this, MainActivity.class));
             }
         });
-    }
+}
 
     private void initView() {
         recyclerViewList = findViewById(R.id.cartView);
@@ -93,9 +109,42 @@ public class CartListActivity extends AppCompatActivity {
         double total = Math.round(managementCart.getTotalFee() + tax + delivery) * 100 / 100;
         double itemTotal = Math.round(managementCart.getTotalFee() * 100/ 100);
 
-        totalFeeTxt.setText("$" + itemTotal);
-        taxTxt.setText("$" + tax);
-        deliveryTxt.setText("$" + delivery);
-        totalTxt.setText("$" + total);
+        totalFeeTxt.setText("VND " + itemTotal);
+        taxTxt.setText("VND " + tax);
+        deliveryTxt.setText("VND " + delivery);
+        totalTxt.setText("VND " + total);
     }
+    private void showPaymentSuccessDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(Html.fromHtml("<font color='#FF0000'>Thanh toán thành công</font>"))
+                .setMessage(Html.fromHtml("<font color='#000000'>Cảm ơn bạn đã thanh toán.</font>"))
+                .setPositiveButton(Html.fromHtml("<font color='#FF0000'>OK</font>"), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Xóa thông tin giỏ hàng
+                        managementCart.clearCart();
+                        // Cập nhật giao diện người dùng
+                        updateUI();
+                        // Chuyển hướng về MainActivity
+                        Intent intent = new Intent(CartListActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+        // Hiển thị AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void updateUI() {
+        // Cập nhật giao diện người dùng sau khi xóa thông tin giỏ hàng
+        totalFeeTxt.setText("VND 0");
+        taxTxt.setText("VND 0");
+        deliveryTxt.setText("VND 0");
+        totalTxt.setText("VND 0");
+        adapter.notifyDataSetChanged();
+        emptyTxt.setVisibility(View.VISIBLE);
+        scrollView.setVisibility(View.GONE);
+    }
+
 }

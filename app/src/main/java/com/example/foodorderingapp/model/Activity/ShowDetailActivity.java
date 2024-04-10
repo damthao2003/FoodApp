@@ -25,7 +25,7 @@ public class ShowDetailActivity extends AppCompatActivity {
 
     private FoodDomain object;
     private ManagementCart managementCart;
-//    private Object Glide;
+    //    private Object Glide;
     int numberOrder = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +37,16 @@ public class ShowDetailActivity extends AppCompatActivity {
         getBundle();
     }
 
-     private void getBundle() {
-
+    private void getBundle() {
         object= (FoodDomain) getIntent().getSerializableExtra("object");
-        int drawableResourceId=this.getResources().getIdentifier(object.getPic(),"drawable", this.getPackageName());
+        String imageUrl = object.getPic(); // Đây là URL của ảnh từ cơ sở dữ liệu Firebase của bạn
 
         Glide.with(this)
-                .load(drawableResourceId)
+                .load(imageUrl)
                 .into(foodFic);
 
-
         titleTxt.setText(object.getTitle());
-        feeTxt.setText(object.getFee() + "VNĐ");
+        feeTxt.setText(object.getFee() + " VNĐ");
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
 

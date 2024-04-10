@@ -47,7 +47,11 @@
                 android:scaleType="fitCenter"
 
                 android:layout_height="200dp"
+
                 android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="100dp"
+                android:scaleType="fitCenter"
                 tools:layout_marginBottom="20dp"
                 tools:srcCompat="@drawable/pizza2" />
 
@@ -93,7 +97,7 @@
                 android:id="@+id/descriptionTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-               android:layout_margin="20dp"
+                android:layout_margin="20dp"
                 android:layout_marginTop="20dp"
                 android:text="Mô tả sản phẩm"
                 android:textSize="20dp"

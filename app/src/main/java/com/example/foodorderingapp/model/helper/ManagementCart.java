@@ -36,6 +36,11 @@ public class ManagementCart {
         tinyDB.putListObject("CartList", listFood);
         Toast.makeText(context, "Added To Your Cart", Toast.LENGTH_SHORT).show();
     }
+    // Phương thức để xóa tất cả các mặt hàng khỏi giỏ hàng
+    public void clearCart() {
+        tinyDB.remove("CartList");
+        Toast.makeText(context, "Cart Cleared", Toast.LENGTH_SHORT).show();
+    }
     public ArrayList<FoodDomain> getListCart(){
         return  tinyDB.getListObject("CartList");
     }
@@ -63,4 +68,5 @@ public class ManagementCart {
         }
         return fee;
     }
+
 }
