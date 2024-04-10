@@ -73,19 +73,17 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:focusableInTouchMode="true"
                     android:clickable="true"
-                    android:singleLine="true"
-                    android:text=""  />
+                    android:singleLine="true"/>
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="64dp"
-                    android:layout_height="52dp"
-                    android:layout_marginStart="172dp"
-                    android:layout_marginTop="4dp"
 
-                    android:text="Tìm"
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="51dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="148dp"
                     app:layout_constraintStart_toStartOf="@+id/hi_txt"
-                    app:layout_constraintTop_toTopOf="@+id/searchBtn" />
+                    app:layout_constraintTop_toTopOf="@+id/searchBtn"
+                    app:srcCompat="@drawable/timkiem" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

@@ -87,10 +87,11 @@ public class MainActivity extends AppCompatActivity {
         getListCategory();
 
         recyclerViewFood();
+        getListFood();
 
         bottomNavigation();
         EditText editText = findViewById(R.id.searchBtn);
-        Button searchButton = findViewById(R.id.button);
+        ImageView searchButton = findViewById(R.id.imageView10);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,59 +197,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getListFood(String searchText){
+    private void getListFood(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
-    int limit = 5;
-        foodList.clear();  // Clear existing data before new search
-
-        Query query;
-        if (searchText.isEmpty()) {
-            // No search term, fetch initial list
-            query = myRef.limitToFirst(limit);
-        } else {
-            // Search based on title (case-insensitive)
-            query = myRef.orderByChild("title").startAt(searchText.toLowerCase()).endAt(searchText.toLowerCase() + '\uf8ff');
-        }
-
-        query.addValueEventListener(new ValueEventListener() {
+        // Read from the database
+        int limit = 5;
+        c1:
+        myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     FoodDomain food = dataSnapshot.getValue(FoodDomain.class);
                     foodList.add(food);
                 }
                 foodAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // Handle errors
+                // Failed to read value
+                Toast.makeText(MainActivity.this, "Get list food failed", Toast.LENGTH_SHORT).show();
+
+
             }
         });
 
-
-        // Read from the database
-//        int limit = 5;
-//        c1:
-//        myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
-//            @SuppressLint("NotifyDataSetChanged")
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-//                    FoodDomain food = dataSnapshot.getValue(FoodDomain.class);
-//                    foodList.add(food);
-//                }
-//                foodAdapter.notifyDataSetChanged();
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                // Failed to read value
-//                Toast.makeText(MainActivity.this, "Get list food failed", Toast.LENGTH_SHORT).show();
-//
-//
-//            }
-//        });
 
     }
 
