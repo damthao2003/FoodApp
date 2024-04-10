@@ -64,7 +64,7 @@
                     android:id="@+id/totalFeeTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VND 0"
+                    android:text="000 VND"
                     android:textColor="#3A3737"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -94,7 +94,7 @@
                     android:id="@+id/deliTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VND 0"
+                    android:text="000 VND"
                     android:textColor="#3A3737"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -124,7 +124,7 @@
                     android:id="@+id/taxTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VND 0"
+                    android:text="000 VND"
                     android:textColor="#3A3737"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -154,7 +154,7 @@
                     android:id="@+id/totalTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VND 0"
+                    android:text="000 VND"
                     android:textColor="#3A3737"
                     android:textSize="30dp"
                     android:textStyle="bold" />
