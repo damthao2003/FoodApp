@@ -73,13 +73,18 @@ public class MainActivity extends AppCompatActivity {
         getListCategory();
 
         recyclerViewFood();
+<<<<<<< HEAD
         getListFood();
+=======
+        getListPopularFood();
+>>>>>>> c7d4ed8a59da06019d7468a264445d3fca5e5b12
 
         bottomNavigation();
     }
 
 
     private void bottomNavigation(){
+<<<<<<< HEAD
         LinearLayout cardBtn = findViewById(R.id.cartBtn);
         LinearLayout homeBtn = findViewById(R.id.cartBtn);
         ImageView imageView4 = findViewById(R.id.imageView4);
@@ -91,14 +96,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+=======
+        ImageView imageView5 = findViewById(R.id.imageView5);
+        ImageView imageView3 = findViewById(R.id.imageView3);
+        ImageView imageView4 = findViewById(R.id.imageView4);
+>>>>>>> c7d4ed8a59da06019d7468a264445d3fca5e5b12
 
-        cardBtn.setOnClickListener(new View.OnClickListener() {
+        imageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, CartListActivity.class));
             }
         });
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
@@ -170,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getListFood(){
+    private void getListPopularFood(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database

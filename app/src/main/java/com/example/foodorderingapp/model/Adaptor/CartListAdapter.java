@@ -23,6 +23,10 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
     private ArrayList<FoodDomain> foodDomains;
     private ManagementCart managementCart;
     private ChangeNumberItemListener changeNumberItemListener;
+    public void setFoodDomains(ArrayList<FoodDomain> foodDomains) {
+        this.foodDomains = foodDomains;
+        notifyDataSetChanged(); // Thông báo cho adapter rằng dữ liệu đã thay đổi
+    }
 
     public CartListAdapter(ArrayList<FoodDomain> foodDomains, Context context, ChangeNumberItemListener changeNumberItemListener) {
         this.foodDomains = foodDomains;
@@ -43,12 +47,16 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         holder.totalEachItem.setText(String.valueOf(Math.round(foodDomains.get(position).getNumberInCart() * foodDomains.get(position).getFee() * 100)/100));
         holder.num.setText(String.valueOf(foodDomains.get(position).getNumberInCart()));
 
-       int drawableReourceId = holder.itemView.getContext().getResources().getIdentifier(foodDomains.get(position).getPic()
-                ,"drawable", holder.itemView.getContext().getPackageName());
+        // Lấy URL của hình ảnh từ đối tượng FoodDomain
+        String imageUrl = foodDomains.get(position).getPic();
 
+        // Sử dụng Glide để tải hình ảnh từ URL vào ImageView trong ViewHolder
         Glide.with(holder.itemView.getContext())
-                .load(drawableReourceId)
+                .load(imageUrl)
                 .into(holder.pic);
+
+        // Gắn các sự kiện cho các nút plus và minus ở đây nếu cần thiết
+
         holder.plusItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
