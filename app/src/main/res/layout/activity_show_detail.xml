@@ -41,13 +41,9 @@
 
             <ImageView
                 android:id="@+id/picFood"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
-                android:scaleType="fitCenter"
-
-                android:layout_height="200dp"
-
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginRight="100dp"
@@ -114,10 +110,11 @@
         android:layout_margin="16dp"
         android:background="@drawable/orange_button"
         android:gravity="center"
-        android:text="Add to cart"
+        android:text="Thêm vào giỏ hàng"
         android:textColor="#ffffff"
         android:textSize="23dp"
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

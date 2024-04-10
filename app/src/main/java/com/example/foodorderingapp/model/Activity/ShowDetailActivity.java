@@ -45,6 +45,7 @@ public class ShowDetailActivity extends AppCompatActivity {
                 .load(imageUrl)
                 .into(foodFic);
 
+
         titleTxt.setText(object.getTitle());
         feeTxt.setText(object.getFee() + " VNĐ");
         descriptionTxt.setText(object.getDescription());

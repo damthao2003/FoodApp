@@ -34,7 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-//    private RecyclerView.Adapter  adapter2;
+    //    private RecyclerView.Adapter  adapter2;
 //    private Adapter adapterCate, adapter2;
     private RecyclerView rcvCategoryList , rcvFoodList;
     private CategoryAdapter categoryAdapter;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 // Xử lý lỗi không có tên hiển thị
                 TextView textView = findViewById(R.id.hi_txt);
-                 textView.setText("Chưa có tên hiển thị");
+                textView.setText("Chưa có tên hiển thị");
             }
         } else {
             // Hiển thị thông báo người dùng chưa đăng nhập
@@ -71,27 +71,34 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         getListCategory();
-<<<<<<< HEAD
-        recyclerViewFood();
-        getListFood();
-=======
 
         recyclerViewFood();
+        getListPopularFood();
 
-          recyclerViewFood();
-          getListFood();
-
->>>>>>> 9d0a2faf7ee26b1e7f8c3aaa527bc477800c36b6
         bottomNavigation();
     }
 
 
     private void bottomNavigation(){
+
+//        LinearLayout cardBtn = findViewById(R.id.cartBtn);
+//        LinearLayout homeBtn = findViewById(R.id.cartBtn);
+//        ImageView imageView4 = findViewById(R.id.imageView4);
+//
+//        imageView4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
         ImageView imageView5 = findViewById(R.id.imageView5);
         ImageView imageView3 = findViewById(R.id.imageView3);
         ImageView imageView4 = findViewById(R.id.imageView4);
 
-        imageView4.setOnClickListener(new OnClickListener() {
+
+        imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
@@ -177,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getListFood(){
+    private void getListPopularFood(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database
