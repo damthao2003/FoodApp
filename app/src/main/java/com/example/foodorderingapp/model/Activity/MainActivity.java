@@ -80,19 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void bottomNavigation(){
-
-//        LinearLayout cardBtn = findViewById(R.id.cartBtn);
-//        LinearLayout homeBtn = findViewById(R.id.cartBtn);
-//        ImageView imageView4 = findViewById(R.id.imageView4);
-//
-//        imageView4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, LogoutActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
         ImageView imageView5 = findViewById(R.id.imageView5);
         ImageView imageView3 = findViewById(R.id.imageView3);
         ImageView imageView4 = findViewById(R.id.imageView4);
@@ -188,8 +175,12 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database
-        int limit = 5;
-        myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
+
+//        //int limit = 7;
+        //myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
+
+        myRef.addValueEventListener(new ValueEventListener() {
+
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
