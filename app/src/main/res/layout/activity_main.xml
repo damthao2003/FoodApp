@@ -135,7 +135,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,11 +165,9 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="40dp"
-
+                        android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="15dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/home_icon" />
 
@@ -180,7 +178,8 @@
                         android:text="Trang chủ"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="5dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -194,11 +193,10 @@
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_margin="3dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="15dp"
-
                         android:layout_weight="1"
                         app:srcCompat="@drawable/profile_icon" />
 
@@ -209,7 +207,8 @@
                         android:text="Tài khoản"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="5dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -223,9 +222,9 @@
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:layout_width="45dp"
+                        android:layout_width="match_parent"
+                        android:layout_margin="3dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cart_icon" />
@@ -237,7 +236,8 @@
                         android:text="Giỏ hàng"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="5dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -250,10 +250,10 @@
 
                     <ImageView
                         android:id="@+id/imageView6"
-                        android:layout_width="40dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="15dp"
+                        android:layout_margin="3dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/mess_icon" />
 
@@ -265,7 +265,8 @@
                         android:text="Hỗ trợ"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="5dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -278,10 +279,10 @@
 
                     <ImageView
                         android:id="@+id/imageView7"
-                        android:layout_width="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_margin="3dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="15dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/settings_icon" />
 
@@ -293,7 +294,8 @@
                         android:text="Cài đặt"
                         android:textAlignment="center"
                         android:textColor="#676767"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="5dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>

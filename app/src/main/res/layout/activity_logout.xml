@@ -58,7 +58,7 @@
         android:layout_marginTop="48dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewAvatar">
 
@@ -76,7 +76,7 @@
         <TextView
             android:id="@+id/textViewChangePassword"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="44dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="10dp"
             android:text="Email:"
@@ -132,6 +132,8 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/orangeBackground"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/imageViewAvatar" />
 
@@ -145,6 +147,8 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/Emailtxt" />
 

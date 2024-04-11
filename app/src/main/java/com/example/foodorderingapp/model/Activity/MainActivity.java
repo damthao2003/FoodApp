@@ -167,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Food");
         // Read from the database
+//        //int limit = 7;
+        //myRef.limitToFirst(limit).addValueEventListener(new ValueEventListener() {
+
         myRef.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
